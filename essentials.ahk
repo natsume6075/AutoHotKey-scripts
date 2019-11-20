@@ -9,19 +9,20 @@ SetWorkingDir %A_ScriptDir%  ; Ensures a consistent starting directory.
 Shift::
 if  ( WinActive("ahk_class VirtualConsoleClass")   ){
   IME_SET(0)
-;  Send, çlang2
+  Send, çlang2
 }else{
   IME_SET(0)
 }
 return
 
-; vk1C::
-; if  ( WinActive("ahk_class VirtualConsoleClass")   ){
-;   IME_SET(1)
-;   Send, çlang1 ; これだと大文字で送られる
-; }
-; return
-
+vk1C::
+if  ( WinActive("ahk_class VirtualConsoleClass")   ){
+  IME_SET(1)
+  Send, çlang1{F10}{Enter} ; これだと大文字で送られる
+}else{
+  IME_SET(1)
+}
+return
 
 
 
