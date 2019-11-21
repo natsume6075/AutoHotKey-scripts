@@ -24,7 +24,31 @@ if  ( WinActive("ahk_class VirtualConsoleClass")   ){
 }
 return
 
+F1::
+WinGet, vcurrentwindow, ID, A
+vimestate := DllCall("user32.dll\SendMessageA", "UInt", DllCall("imm32.dll\ImmGetDefaultIMEWnd", "Uint", vcurrentwindow), "UInt", 0x0283, "Int", 0x0005, "Int", 0)
+Msgbox, %vimestate% `n 0はOFF `n 1はON
+return
 
+j::
+WinGet, vcurrentwindow, ID, A
+vimestate := DllCall("user32.dll\SendMessageA", "UInt", DllCall("imm32.dll\ImmGetDefaultIMEWnd", "Uint", vcurrentwindow), "UInt", 0x0283, "Int", 0x0005, "Int", 0)
+if (vimestate == 1){
+  KeyWait, j
+    if (A_PriorHotkey == A_ThisHotkey) && (400 > A_TimeSincePriorHotkey)
+    {
+      send, j{Return}
+    } else {
+      Send, j
+    }
+} else {
+  Send, j
+}
+return
+
+
+
++;::Send, :
 
 ; ホットストリング
 ::kita-::
@@ -36,10 +60,8 @@ Return
 /**
  * Mac like な操作にする
  */
-; ^Tab::Send, {Blind}!{Tab}
 ^Q::Send, !{F4}
 
-; +;::Send, :
 
 
 /**
@@ -208,7 +230,7 @@ Space & r::
 if  ( WinActive("ahk_class VirtualConsoleClass")   ){
   Send, ^r
 }else{
-
+  Send, {AppsKey}
 }
 return
 
@@ -275,38 +297,4 @@ if  ( WinActive("ahk_class VirtualConsoleClass")   ){
 
 }
 return
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 

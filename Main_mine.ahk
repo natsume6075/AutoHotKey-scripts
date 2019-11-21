@@ -6,5 +6,5 @@ SetTitleMatchMode,2
 #UseHook
 
 #include essentials.ahk
-; #include hotkeys.ahk
+#include hotkeys.ahk
 
