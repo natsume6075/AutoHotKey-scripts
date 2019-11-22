@@ -32,6 +32,19 @@ else
 Return
 
 
+; Explorer
+F13 & x::
+Process,Exist,explorer.exe
+If ErrorLevel<>0
+    IfWinActive,ahk_pid %ErrorLevel%
+        Send, ^{tab}
+    else
+        WinActivate,ahk_pid %ErrorLevel%
+else
+    Run,explorer.exe
+Return
+
+
 ; Browser
 F13 & b::
 Process,Exist,iexplore.exe
@@ -45,7 +58,7 @@ else
 Return
 
 ; Excel
-F13 & e::
+F13 & x::
 Process,Exist,EXCEL.EXE
 If ErrorLevel<>0
     IfWinActive,ahk_pid %ErrorLevel%
