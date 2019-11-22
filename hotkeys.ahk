@@ -33,7 +33,7 @@ Return
 
 
 ; Explorer
-F13 & x::
+F13 & e::
 Process,Exist,explorer.exe
 If ErrorLevel<>0
     IfWinActive,ahk_pid %ErrorLevel%
