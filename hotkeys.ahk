@@ -7,6 +7,8 @@ SetWorkingDir %A_ScriptDir%  ; Ensures a consistent starting directory.
 ; ウィンドウが画面の端に移動されたとき自動的に整列されないようにします が生きていること
 
 
+DetectHiddenWindows, on
+
 ; outlook
 F13 & m::
 Process,Exist,outlook.exe                 ;アウトルックが起動しているかどうかを調べる
