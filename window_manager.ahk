@@ -7,6 +7,16 @@ SetWorkingDir %A_ScriptDir%  ; Ensures a consistent starting directory.
 ; ウィンドウが画面の端に移動されたとき自動的に整列されないようにします が生きていること
 
 
+
+; activate previous window
+F13 & z::
+Send, !{tab}
+MouseMove, 200, 100
+Return
+
+; close focus window
+F13 & q::Send, !{F4}
+
 ; outlook
 F13 & m::
 Process,Exist,outlook.exe                 ;アウトルックが起動しているかどうかを調べる
@@ -17,6 +27,8 @@ If ErrorLevel<>0                          ;起動していた場合(ErrorLevel�
         WinActivate,ahk_pid %ErrorLevel%  ;そのプロセスのウィンドウをアクティブにする
 else                                      ;起動していなかった場合
     Run,OUTLOOK.EXE                       ;アウトルックを起動する
+WinGetPos, , , w, h, A
+MouseMove, w/2, h/2
 Return
 
 ; lotus notes
@@ -29,6 +41,8 @@ If ErrorLevel<>0
         WinActivate,ahk_pid %ErrorLevel%
 else
     Run,nlnotes.exe
+WinGetPos, , , w, h, A
+MouseMove, w/2, h/2
 Return
 
 
@@ -42,6 +56,8 @@ If ErrorLevel<>0
         WinActivate,ahk_pid %ErrorLevel%
 else
     Run,explorer.exe
+WinGetPos, , , w, h, A
+MouseMove, w/2, h/2
 Return
 
 
@@ -55,6 +71,8 @@ If ErrorLevel<>0
         WinActivate,ahk_pid %ErrorLevel%
 else
     Run,iexplore.exe
+WinGetPos, , , w, h, A
+MouseMove, w/2, h/2
 Return
 
 ; Excel
@@ -67,6 +85,8 @@ If ErrorLevel<>0
         WinActivate,ahk_pid %ErrorLevel%
 else
     Run,EXCEL.EXE
+WinGetPos, , , w, h, A
+MouseMove, w/2, h/2
 Return
 
 ; Word
@@ -79,6 +99,8 @@ If ErrorLevel<>0
         WinActivate,ahk_pid %ErrorLevel%
 else
     Run,WINWORD.EXE
+WinGetPos, , , w, h, A
+MouseMove, w/2, h/2
 Return
 
 ; PowerPoint
@@ -91,17 +113,49 @@ If ErrorLevel<>0
         WinActivate,ahk_pid %ErrorLevel%
 else
     Run,POWERPNT.EXE
+WinGetPos, , , w, h, A
+MouseMove, w/2, h/2
 Return
 
 
 ; conemu/cmder
 F13 & c::Send, ^@
 
-
+; focus previous/next virtual desktop
 F13 & h::Send, #^{Left}
 F13 & l::Send, #^{Right}
 
 
 
+;アクティブなアプリケーションと同一種類のウィンドウを水平垂直に並べる(最大4枚まで)
+;アクティブウィンドウの左上座標が含まれるモニターに並べる
+;元ネタ:http://neue.cc/2009/06/20_168.html
+F13 & t::TileMove()
+TileMove()
+{
+  WinGet, activeWindowID, ID, A
+    WinGetPos, x, y, w, h, ahk_id %activeWindowID%
+    SysGet, monitorCount, MonitorCount
+    Loop, %monitorCount%
+    {
+      SysGet, m, MonitorWorkArea, %a_index%
+        if (mLeft <= x && x <= mRight && mTop <= y && y <= mBottom)
+        {
+          WinGetClass, activeWindowClass, ahk_id %activeWindowID%
+            WinGet, id, list, ahk_class %activeWindowClass%
+            Loop, %id%
+            {
+w := (mRight - mLeft) / 2
+     h := (id > 2) ? (mBottom - mTop) / 2 : mBottom - mTop
+     x := (Mod(a_index, 2) == 1) ? mLeft : mLeft + w
+     y := (a_index <= 2) ? mTop : mTop + h
 
-
+     StringTrimRight, this_id, id%a_index%, 0
+     WinActivate, ahk_id %this_id%
+     WinWaitActive, ahk_id %this_id%
+     WinMove, ahk_id %this_id%,,%x%, %y%, %w%, %h%
+            }
+          break
+        }
+    }
+}
