@@ -17,6 +17,8 @@ Return
 ; close focus window
 F13 & q::Send, !{F4}
 
+DetectHiddenWindows, on
+
 ; outlook
 F13 & m::
 Process,Exist,outlook.exe                 ;アウトルックが起動しているかどうかを調べる
