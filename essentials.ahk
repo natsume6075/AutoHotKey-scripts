@@ -57,10 +57,6 @@ Send,^v
 Return
 
 
-/**
- * Mac like な操作にする
- */
-^Q::Send, !{F4}
 
 
 
