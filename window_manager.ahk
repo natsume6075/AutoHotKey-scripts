@@ -127,7 +127,11 @@ F13 & c::Send, ^@
 F13 & h::Send, #^{Left}
 F13 & l::Send, #^{Right}
 
-
+; move focus window to previous/next virtual desktop
+F13 & y::
+Send, #^{Left}
+WinMove, A, , 0, 0
+Return
 
 ;アクティブなアプリケーションと同一種類のウィンドウを水平垂直に並べる(最大4枚まで)
 ;アクティブウィンドウの左上座標が含まれるモニターに並べる
