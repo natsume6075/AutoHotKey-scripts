@@ -127,6 +127,16 @@ F13 & c::Send, ^@
 F13 & h::Send, #^{Left}
 F13 & l::Send, #^{Right}
 
+; move focus window to next monitor
+; F13 & k::
+
+#if GetKeyState("shift", "P")
+
+F13 & k::
+Send, +#{Right}
+return
+
+#If
 
 
 ;アクティブなアプリケーションと同一種類のウィンドウを水平垂直に並べる(最大4枚まで)
@@ -161,3 +171,4 @@ w := (mRight - mLeft) / 2
         }
     }
 }
+
