@@ -11,7 +11,8 @@ SetWorkingDir %A_ScriptDir%  ; Ensures a consistent starting directory.
 ; activate previous window
 F13 & z::
 Send, !{tab}
-MouseMove, 200, 100
+WinGetPos, , , w, h, A
+MouseMove, w/2, h/2
 Return
 
 ; close focus window
@@ -130,10 +131,13 @@ F13 & l::Send, #^{Right}
 ; move focus window to next monitor
 ; F13 & k::
 
+
 #if GetKeyState("shift", "P")
 
 F13 & k::
 Send, +#{Right}
+WinGetPos, , , w, h, A
+MouseMove, w/2, h/2
 return
 
 #If

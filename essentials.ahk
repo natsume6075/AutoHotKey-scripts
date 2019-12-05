@@ -24,6 +24,9 @@ if  ( WinActive("ahk_class VirtualConsoleClass")   ){
 }
 return
 
+
+
+
 F1::
 WinGet, vcurrentwindow, ID, A
 vimestate := DllCall("user32.dll\SendMessageA", "UInt", DllCall("imm32.dll\ImmGetDefaultIMEWnd", "Uint", vcurrentwindow), "UInt", 0x0283, "Int", 0x0005, "Int", 0)
@@ -49,6 +52,12 @@ return
 
 
 +;::Send, :
+
+@::+7
++@::+2
++2::Send, @
++7::+@
+
 
 ; ホットストリング
 ::kita-::
