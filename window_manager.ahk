@@ -16,6 +16,9 @@ MouseMove, w/2, h/2
 Return
 
 ; close focus window
+F13 & a::Send, #{Tab}
+
+; close focus window
 F13 & q::Send, !{F4}
 
 DetectHiddenWindows, on
@@ -121,8 +124,19 @@ MouseMove, w/2, h/2
 Return
 
 
-; conemu/cmder
-F13 & c::Send, ^@
+; Hyper
+F13 & c::
+Process,Exist,Hyper.exe
+If ErrorLevel<>0
+    IfWinActive,ahk_pid %ErrorLevel%
+        WinMinimize,ahk_pid %ErrorLevel%
+    else
+        WinActivate,ahk_pid %ErrorLevel%
+else
+    Run,Hyper.exe
+WinGetPos, , , w, h, A
+MouseMove, w/2, h/2
+Return
 
 ; focus previous/next virtual desktop
 F13 & h::Send, #^{Left}
