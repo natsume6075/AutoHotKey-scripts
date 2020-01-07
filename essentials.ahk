@@ -96,7 +96,7 @@ Return
  */
 
 Space & a::
-if  ( WinActive("ahk_class VirtualConsoleClass")   ){
+if  ( WinActive("ahk_class VirtualConsoleClass") || WinActive("ahk_exe Hyper.exe")   ){
   Send, ^a
 }else{
   Send, {Blind}{Home}
@@ -104,7 +104,7 @@ if  ( WinActive("ahk_class VirtualConsoleClass")   ){
 return
 
 Space & b::
-if  ( WinActive("ahk_class VirtualConsoleClass")   ){
+if  ( WinActive("ahk_class VirtualConsoleClass") || WinActive("ahk_exe Hyper.exe")   ){
   Send, ^b
 }else{
   Send, {Blind}{Left}
@@ -112,7 +112,7 @@ if  ( WinActive("ahk_class VirtualConsoleClass")   ){
 return
 
 Space & c::
-if  ( WinActive("ahk_class VirtualConsoleClass")   ){
+if  ( WinActive("ahk_class VirtualConsoleClass") || WinActive("ahk_exe Hyper.exe")   ){
   Send, ^c
 }else{
   Send, {Blind}{Esc}
@@ -120,7 +120,7 @@ if  ( WinActive("ahk_class VirtualConsoleClass")   ){
 return
 
 Space & d::
-if  ( WinActive("ahk_class VirtualConsoleClass")   ){
+if  ( WinActive("ahk_class VirtualConsoleClass") || WinActive("ahk_exe Hyper.exe")   ){
   Send, ^d
 }else{
   Send, {Blind}{Delete}
@@ -128,7 +128,7 @@ if  ( WinActive("ahk_class VirtualConsoleClass")   ){
 return
 
 Space & e::
-if  ( WinActive("ahk_class VirtualConsoleClass")   ){
+if  ( WinActive("ahk_class VirtualConsoleClass") || WinActive("ahk_exe Hyper.exe")   ){
   Send, ^e
 }else{
   Send, {Blind}{End}
@@ -136,7 +136,7 @@ if  ( WinActive("ahk_class VirtualConsoleClass")   ){
 return
 
 Space & f::
-if  ( WinActive("ahk_class VirtualConsoleClass")   ){
+if  ( WinActive("ahk_class VirtualConsoleClass") || WinActive("ahk_exe Hyper.exe")   ){
   Send, ^f
 }else{
   Send, {Blind}{right}
@@ -144,7 +144,7 @@ if  ( WinActive("ahk_class VirtualConsoleClass")   ){
 return
 
 Space & g::
-if  ( WinActive("ahk_class VirtualConsoleClass")   ){
+if  ( WinActive("ahk_class VirtualConsoleClass") || WinActive("ahk_exe Hyper.exe")   ){
   Send, ^g
 }else{
 
@@ -152,7 +152,7 @@ if  ( WinActive("ahk_class VirtualConsoleClass")   ){
 return
 
 Space & h::
-if  ( WinActive("ahk_class VirtualConsoleClass")   ){
+if  ( WinActive("ahk_class VirtualConsoleClass") || WinActive("ahk_exe Hyper.exe")   ){
   Send, ^h
 }else{
   Send, {Blind}{BS}
@@ -160,7 +160,7 @@ if  ( WinActive("ahk_class VirtualConsoleClass")   ){
 return
 
 Space & i::
-if  ( WinActive("ahk_class VirtualConsoleClass")   ){
+if  ( WinActive("ahk_class VirtualConsoleClass") || WinActive("ahk_exe Hyper.exe")   ){
   Send, ^i
 }else{
 
@@ -168,7 +168,7 @@ if  ( WinActive("ahk_class VirtualConsoleClass")   ){
 return
 
 Space & j::
-if  ( WinActive("ahk_class VirtualConsoleClass")   ){
+if  ( WinActive("ahk_class VirtualConsoleClass") || WinActive("ahk_exe Hyper.exe")   ){
   Send, ^j
 }else{
   Send, {Blind}{Enter}
@@ -176,7 +176,7 @@ if  ( WinActive("ahk_class VirtualConsoleClass")   ){
 return
 
 Space & k::
-if  ( WinActive("ahk_class VirtualConsoleClass")   ){
+if  ( WinActive("ahk_class VirtualConsoleClass") || WinActive("ahk_exe Hyper.exe")   ){
   Send, ^k
 }else{
   Send, {Blind}+{End}{BS}
@@ -184,7 +184,7 @@ if  ( WinActive("ahk_class VirtualConsoleClass")   ){
 return
 
 Space & l::
-if  ( WinActive("ahk_class VirtualConsoleClass")   ){
+if  ( WinActive("ahk_class VirtualConsoleClass") || WinActive("ahk_exe Hyper.exe")   ){
   Send, {Blind}{Tab}
 }else{
   Send, {Blind}{Tab}
@@ -192,7 +192,7 @@ if  ( WinActive("ahk_class VirtualConsoleClass")   ){
 return
 
 Space & m::
-if  ( WinActive("ahk_class VirtualConsoleClass")   ){
+if  ( WinActive("ahk_class VirtualConsoleClass") || WinActive("ahk_exe Hyper.exe")   ){
   Send, ^m
 }else{
   Send, {Blind}{Enter}
@@ -200,7 +200,7 @@ if  ( WinActive("ahk_class VirtualConsoleClass")   ){
 return
 
 Space & n::
-if  ( WinActive("ahk_class VirtualConsoleClass")   ){
+if  ( WinActive("ahk_class VirtualConsoleClass") || WinActive("ahk_exe Hyper.exe")   ){
   Send, ^n
 }else{
   Send, {Blind}{down}
@@ -208,7 +208,7 @@ if  ( WinActive("ahk_class VirtualConsoleClass")   ){
 return
 
 Space & o::
-if  ( WinActive("ahk_class VirtualConsoleClass")   ){
+if  ( WinActive("ahk_class VirtualConsoleClass") || WinActive("ahk_exe Hyper.exe")   ){
   Send, ^o
 }else{
 
@@ -216,7 +216,7 @@ if  ( WinActive("ahk_class VirtualConsoleClass")   ){
 return
 
 Space & p::
-if  ( WinActive("ahk_class VirtualConsoleClass")   ){
+if  ( WinActive("ahk_class VirtualConsoleClass") || WinActive("ahk_exe Hyper.exe")   ){
   Send, ^p
 }else{
   Send, {Blind}{up}
@@ -224,7 +224,7 @@ if  ( WinActive("ahk_class VirtualConsoleClass")   ){
 return
 
 Space & q::
-if  ( WinActive("ahk_class VirtualConsoleClass")   ){
+if  ( WinActive("ahk_class VirtualConsoleClass") || WinActive("ahk_exe Hyper.exe")   ){
   Send, ^q
 }else{
 
@@ -232,7 +232,7 @@ if  ( WinActive("ahk_class VirtualConsoleClass")   ){
 return
 
 Space & r::
-if  ( WinActive("ahk_class VirtualConsoleClass")   ){
+if  ( WinActive("ahk_class VirtualConsoleClass") || WinActive("ahk_exe Hyper.exe")   ){
   Send, ^r
 }else{
   Send, {AppsKey}
@@ -240,7 +240,7 @@ if  ( WinActive("ahk_class VirtualConsoleClass")   ){
 return
 
 Space & s::
-if  ( WinActive("ahk_class VirtualConsoleClass")   ){
+if  ( WinActive("ahk_class VirtualConsoleClass") || WinActive("ahk_exe Hyper.exe")   ){
   Send, ^s
 }else{
 
@@ -248,7 +248,7 @@ if  ( WinActive("ahk_class VirtualConsoleClass")   ){
 return
 
 Space & t::
-if  ( WinActive("ahk_class VirtualConsoleClass")   ){
+if  ( WinActive("ahk_class VirtualConsoleClass") || WinActive("ahk_exe Hyper.exe")   ){
   Send, ^t
 }else{
 
@@ -256,7 +256,7 @@ if  ( WinActive("ahk_class VirtualConsoleClass")   ){
 return
 
 Space & u::
-if  ( WinActive("ahk_class VirtualConsoleClass")   ){
+if  ( WinActive("ahk_class VirtualConsoleClass") || WinActive("ahk_exe Hyper.exe")   ){
   Send, ^u
 }else{
   Send, {Blind}+{Home}{BS}
@@ -264,7 +264,7 @@ if  ( WinActive("ahk_class VirtualConsoleClass")   ){
 return
 
 Space & v::
-if  ( WinActive("ahk_class VirtualConsoleClass")   ){
+if  ( WinActive("ahk_class VirtualConsoleClass") || WinActive("ahk_exe Hyper.exe")   ){
   Send, ^v
 }else{
 
@@ -272,7 +272,7 @@ if  ( WinActive("ahk_class VirtualConsoleClass")   ){
 return
 
 Space & w::
-if  ( WinActive("ahk_class VirtualConsoleClass")   ){
+if  ( WinActive("ahk_class VirtualConsoleClass") || WinActive("ahk_exe Hyper.exe")   ){
   Send, ^w
 }else{
 
@@ -280,7 +280,7 @@ if  ( WinActive("ahk_class VirtualConsoleClass")   ){
 return
 
 Space & x::
-if  ( WinActive("ahk_class VirtualConsoleClass")   ){
+if  ( WinActive("ahk_class VirtualConsoleClass") || WinActive("ahk_exe Hyper.exe")   ){
   Send, ^x
 }else{
 
@@ -288,7 +288,7 @@ if  ( WinActive("ahk_class VirtualConsoleClass")   ){
 return
 
 Space & y::
-if  ( WinActive("ahk_class VirtualConsoleClass")   ){
+if  ( WinActive("ahk_class VirtualConsoleClass") || WinActive("ahk_exe Hyper.exe")   ){
   Send, ^y
 }else{
 
@@ -296,7 +296,7 @@ if  ( WinActive("ahk_class VirtualConsoleClass")   ){
 return
 
 Space & z::
-if  ( WinActive("ahk_class VirtualConsoleClass")   ){
+if  ( WinActive("ahk_class VirtualConsoleClass") || WinActive("ahk_exe Hyper.exe")   ){
   Send, ^z
 }else{
 
