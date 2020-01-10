@@ -69,7 +69,7 @@ Return
 
 ; Browser
 F13 & b::
-Process,Exist,iexplore.exe
+Process,Exist,chrome.exe
 If ErrorLevel<>0
     IfWinActive,ahk_pid %ErrorLevel%
         Send, ^{tab}
