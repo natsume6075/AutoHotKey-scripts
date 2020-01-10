@@ -185,7 +185,7 @@ return
 
 Space & l::
 if  ( WinActive("ahk_class VirtualConsoleClass") || WinActive("ahk_exe Hyper.exe")   ){
-  Send, {Blind}{Tab}
+  Send, ^l
 }else{
   Send, {Blind}{Tab}
 }
