@@ -275,7 +275,7 @@ Space & w::
 if  ( WinActive("ahk_class VirtualConsoleClass") || WinActive("ahk_exe Hyper.exe")   ){
   Send, ^w
 }else{
-
+  Send, ^{BS}
 }
 return
 
