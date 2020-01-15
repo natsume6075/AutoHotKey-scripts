@@ -69,14 +69,14 @@ Return
 
 ; Browser
 F13 & b::
-Process,Exist,chrome.exe
+Process,Exist,vivaldi.exe
 If ErrorLevel<>0
     IfWinActive,ahk_pid %ErrorLevel%
         Send, ^{tab}
     else
         WinActivate,ahk_pid %ErrorLevel%
 else
-    Run,iexplore.exe
+    Run,vivaldi.exe
 WinGetPos, , , w, h, A
 MouseMove, w/2, h/2
 Return
