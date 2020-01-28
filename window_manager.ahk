@@ -15,8 +15,11 @@ WinGetPos, , , w, h, A
 MouseMove, w/2, h/2
 Return
 
-; close focus window
+; expose
 F13 & a::Send, #{Tab}
+
+; keypirinha
+F13 & space::Send, !{k}
 
 ; close focus window
 F13 & q::Send, !{F4}
@@ -51,6 +54,19 @@ WinGetPos, , , w, h, A
 MouseMove, w/2, h/2
 Return
 
+; FileSeeker3
+F13 & f::
+Process,Exist,FileSeeker3.exe
+If ErrorLevel<>0
+    IfWinActive,ahk_pid %ErrorLevel%
+        WinMinimize,ahk_pid %ErrorLevel%
+    else
+        WinActivate,ahk_pid %ErrorLevel%
+else
+    Run,FileSeeker3
+WinGetPos, , , w, h, A
+MouseMove, w/2, h/2
+Return
 
 ; Explorer
 F13 & e::
