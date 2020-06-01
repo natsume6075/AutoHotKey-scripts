@@ -9,25 +9,25 @@ SetWorkingDir %A_ScriptDir%  ; Ensures a consistent starting directory.
 
 
 ; activate previous window
-F13 & z::
+vk1D & z::
 Send, !{tab}
 WinGetPos, , , w, h, A
 MouseMove, w/2, h/2
 Return
 
 ; expose
-F13 & a::Send, #{Tab}
+vk1D & a::Send, #{Tab}
 
 ; keypirinha
-F13 & space::Send, !{k}
+vk1D & space::Send, !{k}
 
 ; close focus window
-F13 & q::Send, !{F4}
+vk1D & q::Send, !{F4}
 
 DetectHiddenWindows, on
 
 ; outlook
-F13 & m::
+vk1D & m::
 Process,Exist,outlook.exe                 ;アウトルックが起動しているかどうかを調べる
 If ErrorLevel<>0                          ;起動していた場合(ErrorLevel変数にプロセスIDが格納される)
     IfWinActive,ahk_pid %ErrorLevel%      ;アウトルックがアクティブならば
@@ -41,7 +41,7 @@ MouseMove, w/2, h/2
 Return
 
 ; lotus notes
-F13 & n::
+vk1D & n::
 Process,Exist,nlnotes.exe
 If ErrorLevel<>0
     IfWinActive,ahk_pid %ErrorLevel%
@@ -55,7 +55,7 @@ MouseMove, w/2, h/2
 Return
 
 ; FileSeeker3
-F13 & f::
+vk1D & f::
 Process,Exist,FileSeeker3.exe
 If ErrorLevel<>0
     IfWinActive,ahk_pid %ErrorLevel%
@@ -69,7 +69,7 @@ MouseMove, w/2, h/2
 Return
 
 ; Explorer
-F13 & e::
+vk1D & e::
 Process,Exist,explorer.exe
 If ErrorLevel<>0
     IfWinActive,ahk_pid %ErrorLevel%
@@ -84,7 +84,7 @@ Return
 
 
 ; Browser
-F13 & b::
+vk1D & b::
 Process,Exist,vivaldi.exe
 If ErrorLevel<>0
     IfWinActive,ahk_pid %ErrorLevel%
@@ -98,7 +98,7 @@ MouseMove, w/2, h/2
 Return
 
 ; Excel
-F13 & x::
+vk1D & x::
 Process,Exist,EXCEL.EXE
 If ErrorLevel<>0
     IfWinActive,ahk_pid %ErrorLevel%
@@ -112,7 +112,7 @@ MouseMove, w/2, h/2
 Return
 
 ; Word
-F13 & w::
+vk1D & w::
 Process,Exist,WINWORD.EXE
 If ErrorLevel<>0
     IfWinActive,ahk_pid %ErrorLevel%
@@ -126,7 +126,7 @@ MouseMove, w/2, h/2
 Return
 
 ; PowerPoint
-F13 & p::
+vk1D & p::
 Process,Exist,POWERPNT.EXE
 If ErrorLevel<>0
     IfWinActive,ahk_pid %ErrorLevel%
@@ -141,7 +141,7 @@ Return
 
 
 ; Hyper
-F13 & c::
+vk1D & c::
 Process,Exist,Hyper.exe
 If ErrorLevel<>0
     IfWinActive,ahk_pid %ErrorLevel%
@@ -155,17 +155,23 @@ MouseMove, w/2, h/2
 Return
 
 ; focus previous/next virtual desktop
-F13 & h::Send, #^{Left}
-F13 & l::Send, #^{Right}
+vk1D & h::Send, #^{Left}
+vk1D & l::Send, #^{Right}
 
 ; move focus window to next monitor
-; F13 & k::
+; vk1D & k::
 
 
 #if GetKeyState("shift", "P")
 
-F13 & k::
+vk1D & o::
 Send, +#{Right}
+WinGetPos, , , w, h, A
+MouseMove, w/2, h/2
+return
+
+vk1D & i::
+Send, +#{Left}
 WinGetPos, , , w, h, A
 MouseMove, w/2, h/2
 return
@@ -176,7 +182,7 @@ return
 ;アクティブなアプリケーションと同一種類のウィンドウを水平垂直に並べる(最大4枚まで)
 ;アクティブウィンドウの左上座標が含まれるモニターに並べる
 ;元ネタ:http://neue.cc/2009/06/20_168.html
-F13 & t::TileMove()
+vk1D & t::TileMove()
 TileMove()
 {
   WinGet, activeWindowID, ID, A

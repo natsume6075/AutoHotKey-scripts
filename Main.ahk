@@ -6,5 +6,4 @@ SetTitleMatchMode,2
 #UseHook
 
 #include essentials.ahk
-#include window_manager.ahk
 

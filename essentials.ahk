@@ -27,12 +27,6 @@ return
 
 
 
-F1::
-WinGet, vcurrentwindow, ID, A
-vimestate := DllCall("user32.dll\SendMessageA", "UInt", DllCall("imm32.dll\ImmGetDefaultIMEWnd", "Uint", vcurrentwindow), "UInt", 0x0283, "Int", 0x0005, "Int", 0)
-Msgbox, %vimestate% `n 0はOFF `n 1はON
-return
-
 j::
 WinGet, vcurrentwindow, ID, A
 vimestate := DllCall("user32.dll\SendMessageA", "UInt", DllCall("imm32.dll\ImmGetDefaultIMEWnd", "Uint", vcurrentwindow), "UInt", 0x0283, "Int", 0x0005, "Int", 0)
@@ -50,21 +44,14 @@ if (vimestate == 1){
 return
 
 
-
-+;::Send, :
+sc028::Send, +{sc027}
++sc027::Send, {sc028}
++sc028::Send, +{sc028}
 
 @::+7
 +@::+2
 +2::Send, @
 +7::+@
-
-
-; ホットストリング
-::kita-::
-Clipboard = ｷﾀ━━━━━━(ﾟ∀ﾟ)━━━━━━ !!!!!
-Send,^v
-Return
-
 
 
 
@@ -95,211 +82,32 @@ Return
  * それ以外ではオリジナルで emacs like な操作を実現する
  */
 
-Space & a::
-if  ( WinActive("ahk_class VirtualConsoleClass") || WinActive("ahk_exe Hyper.exe")   ){
-  Send, ^a
-}else{
-  Send, {Blind}{Home}
-}
-return
+Space & q::Send, {Blind}{}
+Space & w::Send, ^{BS}
+Space & e::Send, {Blind}{End}
+Space & r::Send, {AppsKey}
+Space & t::Send, {Blind}{}
+Space & y::Send, {Blind}{}
+Space & u::Send, {Blind}+{Home}{BS}
+Space & i::Send, {Blind}{}
+Space & o::Send, {Blind}{}
+Space & p::Send, {Blind}{up}
 
-Space & b::
-if  ( WinActive("ahk_class VirtualConsoleClass") || WinActive("ahk_exe Hyper.exe")   ){
-  Send, ^b
-}else{
-  Send, {Blind}{Left}
-}
-return
+Space & a::Send, {Blind}{Home}
+Space & s::Send, {Blind}{}
+Space & d::Send, {Blind}{Delete}
+Space & f::Send, {Blind}{right}
+Space & g::Send, {Blind}{}
+Space & h::Send, {Blind}{BS}
+Space & j::Send, {Blind}{Enter}
+Space & k::Send, {Blind}+{End}{BS}
+Space & l::Send, {Blind}{Tab}
 
-Space & c::
-if  ( WinActive("ahk_class VirtualConsoleClass") || WinActive("ahk_exe Hyper.exe")   ){
-  Send, ^c
-}else{
-  Send, {Blind}{Esc}
-}
-return
-
-Space & d::
-if  ( WinActive("ahk_class VirtualConsoleClass") || WinActive("ahk_exe Hyper.exe")   ){
-  Send, ^d
-}else{
-  Send, {Blind}{Delete}
-}
-return
-
-Space & e::
-if  ( WinActive("ahk_class VirtualConsoleClass") || WinActive("ahk_exe Hyper.exe")   ){
-  Send, ^e
-}else{
-  Send, {Blind}{End}
-}
-return
-
-Space & f::
-if  ( WinActive("ahk_class VirtualConsoleClass") || WinActive("ahk_exe Hyper.exe")   ){
-  Send, ^f
-}else{
-  Send, {Blind}{right}
-}
-return
-
-Space & g::
-if  ( WinActive("ahk_class VirtualConsoleClass") || WinActive("ahk_exe Hyper.exe")   ){
-  Send, ^g
-}else{
-
-}
-return
-
-Space & h::
-if  ( WinActive("ahk_class VirtualConsoleClass") || WinActive("ahk_exe Hyper.exe")   ){
-  Send, ^h
-}else{
-  Send, {Blind}{BS}
-}
-return
-
-Space & i::
-if  ( WinActive("ahk_class VirtualConsoleClass") || WinActive("ahk_exe Hyper.exe")   ){
-  Send, ^i
-}else{
-
-}
-return
-
-Space & j::
-if  ( WinActive("ahk_class VirtualConsoleClass") || WinActive("ahk_exe Hyper.exe")   ){
-  Send, ^j
-}else{
-  Send, {Blind}{Enter}
-}
-return
-
-Space & k::
-if  ( WinActive("ahk_class VirtualConsoleClass") || WinActive("ahk_exe Hyper.exe")   ){
-  Send, ^k
-}else{
-  Send, {Blind}+{End}{BS}
-}
-return
-
-Space & l::
-if  ( WinActive("ahk_class VirtualConsoleClass") || WinActive("ahk_exe Hyper.exe")   ){
-  Send, ^l
-}else{
-  Send, {Blind}{Tab}
-}
-return
-
-Space & m::
-if  ( WinActive("ahk_class VirtualConsoleClass") || WinActive("ahk_exe Hyper.exe")   ){
-  Send, ^m
-}else{
-  Send, {Blind}{Enter}
-}
-return
-
-Space & n::
-if  ( WinActive("ahk_class VirtualConsoleClass") || WinActive("ahk_exe Hyper.exe")   ){
-  Send, ^n
-}else{
-  Send, {Blind}{down}
-}
-return
-
-Space & o::
-if  ( WinActive("ahk_class VirtualConsoleClass") || WinActive("ahk_exe Hyper.exe")   ){
-  Send, ^o
-}else{
-
-}
-return
-
-Space & p::
-if  ( WinActive("ahk_class VirtualConsoleClass") || WinActive("ahk_exe Hyper.exe")   ){
-  Send, ^p
-}else{
-  Send, {Blind}{up}
-}
-return
-
-Space & q::
-if  ( WinActive("ahk_class VirtualConsoleClass") || WinActive("ahk_exe Hyper.exe")   ){
-  Send, ^q
-}else{
-
-}
-return
-
-Space & r::
-if  ( WinActive("ahk_class VirtualConsoleClass") || WinActive("ahk_exe Hyper.exe")   ){
-  Send, ^r
-}else{
-  Send, {AppsKey}
-}
-return
-
-Space & s::
-if  ( WinActive("ahk_class VirtualConsoleClass") || WinActive("ahk_exe Hyper.exe")   ){
-  Send, ^s
-}else{
-
-}
-return
-
-Space & t::
-if  ( WinActive("ahk_class VirtualConsoleClass") || WinActive("ahk_exe Hyper.exe")   ){
-  Send, ^t
-}else{
-
-}
-return
-
-Space & u::
-if  ( WinActive("ahk_class VirtualConsoleClass") || WinActive("ahk_exe Hyper.exe")   ){
-  Send, ^u
-}else{
-  Send, {Blind}+{Home}{BS}
-}
-return
-
-Space & v::
-if  ( WinActive("ahk_class VirtualConsoleClass") || WinActive("ahk_exe Hyper.exe")   ){
-  Send, ^v
-}else{
-
-}
-return
-
-Space & w::
-if  ( WinActive("ahk_class VirtualConsoleClass") || WinActive("ahk_exe Hyper.exe")   ){
-  Send, ^w
-}else{
-  Send, ^{BS}
-}
-return
-
-Space & x::
-if  ( WinActive("ahk_class VirtualConsoleClass") || WinActive("ahk_exe Hyper.exe")   ){
-  Send, ^x
-}else{
-
-}
-return
-
-Space & y::
-if  ( WinActive("ahk_class VirtualConsoleClass") || WinActive("ahk_exe Hyper.exe")   ){
-  Send, ^y
-}else{
-
-}
-return
-
-Space & z::
-if  ( WinActive("ahk_class VirtualConsoleClass") || WinActive("ahk_exe Hyper.exe")   ){
-  Send, ^z
-}else{
-
-}
-return
+Space & z::Send, {Blind}{}
+Space & x::Send, {Blind}{}
+Space & c::Send, {Blind}{Esc}
+Space & v::Send, {Blind}{}
+Space & b::Send, {Blind}{Left}
+Space & n::Send, {Blind}{down}
+Space & m::Send, {Blind}{Enter}
 
