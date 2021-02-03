@@ -5,5 +5,5 @@ SetTitleMatchMode,2
 #InstallKeybdHook
 #UseHook
 
-#include essentials.ahk
-
+#include essential_keymappings.ahk
+#include window_manager.ahk
