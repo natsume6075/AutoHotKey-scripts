@@ -21,13 +21,19 @@ sc028::Send, +{sc027}
 +sc028::Send, +{sc028}
 
 /**
- * 2とシフトでアットマーク
- * アットマークキーでアポストロフィとダブルクォーテーションを打つ。
+ * 2(sc003)とシフトでアットマーク
+ * 7(sc008)とシフトでアクサングラーブ
+ * アットマークキー(sc01a)でアポストロフィとダブルクォーテーションを打つ。
  */
-@::+7
-+@::+2
-+2::Send, @
-+7::+@
++sc003::Send, {sc01a}
++sc008::Send, +{sc01a}
+sc01a::Send, +{sc008}
++sc01a::Send, +{sc003}
+
+; @::+7
+; +@::+2
+; +2::Send, @
+; +7::+@
 
 /*
  * Space と同時押しで、emacs like な操作を実現する
@@ -42,8 +48,8 @@ Space & t::Send, {Blind}{}
 Space & y::Send, {Blind}{}
 Space & u::Send, {Blind}+{Home}{BS}     ; 行のカーソル以前を削除
 Space & i::Send, {Blind}{}
-Space & o::Send, {Blind}{}
-Space & p::Send, {Blind}{up}
+Space & o::Send, {Blind}^{o}
+Space & p::Send, {Blind}{up}            ; Ctrl O を入力する。Vimのために。
 
 Space & a::Send, {Blind}{Home}
 Space & s::Send, {Blind}{}
