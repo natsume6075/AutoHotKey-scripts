@@ -18,8 +18,8 @@ Return
 ; expose
 vk1D & a::Send, #{Tab}
 
-; keypirinha
-vk1D & space::Send, !{k}
+; keypirinha(default)
+vk1D & space::Send, ^#{k}
 
 ; close focus window
 vk1D & q::Send, !{F4}
@@ -177,37 +177,3 @@ MouseMove, w/2, h/2
 return
 
 #If
-
-
-;アクティブなアプリケーションと同一種類のウィンドウを水平垂直に並べる(最大4枚まで)
-;アクティブウィンドウの左上座標が含まれるモニターに並べる
-;元ネタ:http://neue.cc/2009/06/20_168.html
-vk1D & t::TileMove()
-TileMove()
-{
-  WinGet, activeWindowID, ID, A
-    WinGetPos, x, y, w, h, ahk_id %activeWindowID%
-    SysGet, monitorCount, MonitorCount
-    Loop, %monitorCount%
-    {
-      SysGet, m, MonitorWorkArea, %a_index%
-        if (mLeft <= x && x <= mRight && mTop <= y && y <= mBottom)
-        {
-          WinGetClass, activeWindowClass, ahk_id %activeWindowID%
-            WinGet, id, list, ahk_class %activeWindowClass%
-            Loop, %id%
-            {
-w := (mRight - mLeft) / 2
-     h := (id > 2) ? (mBottom - mTop) / 2 : mBottom - mTop
-     x := (Mod(a_index, 2) == 1) ? mLeft : mLeft + w
-     y := (a_index <= 2) ? mTop : mTop + h
-
-     StringTrimRight, this_id, id%a_index%, 0
-     WinActivate, ahk_id %this_id%
-     WinWaitActive, ahk_id %this_id%
-     WinMove, ahk_id %this_id%,,%x%, %y%, %w%, %h%
-            }
-          break
-        }
-    }
-}
