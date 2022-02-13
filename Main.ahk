@@ -7,3 +7,4 @@ SetTitleMatchMode,2
 
 #include essential_keymappings.ahk
 #include window_manager.ahk
+#include spece_emacs.ahk
