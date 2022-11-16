@@ -16,5 +16,5 @@ vk1C & l::Send, {Blind}{Numpad6}
 vk1C & u::Send, {Blind}{Numpad7}
 vk1C & i::Send, {Blind}{Numpad8}
 vk1C & o::Send, {Blind}{Numpad9}
-vk1C & n::Send, {Blind}{Numpad0}
+vk1C & -::Send, {Blind}{Numpad0}
 
