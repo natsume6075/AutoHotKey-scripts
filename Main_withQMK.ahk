@@ -6,8 +6,5 @@ SetTitleMatchMode,2
 #UseHook
 
 #include layout_symbol_like_US.ahk
-#include control_IME.ahk
 #include window_manager.ahk
-#include space_emacs.ahk
-#include ten_key.ahk
 

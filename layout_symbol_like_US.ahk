@@ -3,15 +3,6 @@
 SendMode Input  ; Recommended for new scripts due to its superior speed and reliability.
 SetWorkingDir %A_ScriptDir%  ; Ensures a consistent starting directory.
 
-
-/**
- * シフトキーで IME OFF
- * 変換キー(vk1C) で IME ON
- */
-#Include lib\IME.ahk
-Shift:: IME_SET(0)
-vk1C:: IME_SET(1)
-
 /**
  * セミコロンキー(sc027)でセミコロンとコロンを打つ。
  * コロンキーで(sc028)でプラスとアスタリスクを打つ。
