@@ -6,5 +6,5 @@ SetTitleMatchMode,2
 #UseHook
 
 #include layout_symbol_like_US.ahk
-#include window_manager.ahk
+; #include window_manager.ahk
 
